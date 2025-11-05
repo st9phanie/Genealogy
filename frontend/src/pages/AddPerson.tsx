@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { locations } from "../utils/utils.js"
 
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import Combobox from "@/components/combobox.js";
 
 
@@ -23,13 +14,12 @@ export const AddPerson = () => {
 
     const [governorate, setGov] = useState("")
     const [district, setDistrict] = useState("")
-
-
+    const [area, setArea] = useState("")
 
     return (
         <div className="flex items-center justify-center w-full flex-col">
 
-            {/* ---------------- NAMES ---------------- */}
+            {/* ---------------------------------- NAMES ------------------------------------------------ */}
             <div className="flex flex-row justify-between gap-6">
                 {nameFields.map((field) => (
                     <div key={field.id} className="flex flex-col">
@@ -44,15 +34,28 @@ export const AddPerson = () => {
                     </div>
                 ))}
             </div>
-            {/* ------------- BIRTHPLACE IN LEBANON ------------  */}
 
+
+            {/* ---------------------------------- BIRTHPLACE IN LEBANON ----------------------------------  */}
             {/* ------------- GOVERNORATES ------------  */}
             <div className="flex flex-row justify-between gap-6">
-                <Combobox list={locations.governorates} listType="Governorate" setValue={setGov} />
+                <div className="flex flex-col justify-between items-start">
+                    <p className="text-md font-medium mb-1 ml-1">Governorate</p>
+                    <Combobox list={locations.governorates} listType="Governorate" setValue={setGov} />
+                </div>
+
 
                 {/* ------------- DISTRICTS ------------  */}
-                <Combobox list={locations.districts[governorate] || []} listType="District" setValue={setDistrict} disabled={!governorate} />
+                <div className="flex flex-col justify-between items-start">
+                    <p className="text-md font-medium mb-1 ml-1">District</p>
+                    <Combobox list={locations.districts[governorate] || []} listType="District" setValue={setDistrict} disabled={!governorate} />
+                </div>
 
+                {/* ------------- AREAS ------------  */}
+                <div className="flex flex-col justify-between items-start">
+                    <p className="text-md font-medium mb-1 ml-1">Area</p>
+                    <Combobox list={locations.areas[district] || []} listType="Area" setValue={setArea} disabled={!district} />
+                </div>
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -122,5 +121,10 @@
 
 .quicksand {
   font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
 }

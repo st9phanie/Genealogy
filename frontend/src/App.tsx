@@ -3,7 +3,7 @@ import {AddPerson} from "./pages/AddPerson"
 
 const App = () => {
   return (
-    <div className="w-full h-screen quicksand">
+    <div className="w-full h-screen outfit">
       <AddPerson />
     </div>
   )
