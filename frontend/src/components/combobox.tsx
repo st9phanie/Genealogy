@@ -42,7 +42,7 @@ const Combobox = ({ list, listType, setValue, disabled }: Props) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[250px] justify-between"
           disabled={disabled || false}
         >
           {selectedValue
